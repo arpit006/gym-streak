@@ -1,9 +1,15 @@
 package main
 
 import (
-	"time"
+	"github.com/arpit006/gym_streak/internal/logger"
+	"github.com/arpit006/gym_streak/internal/setup"
 )
 
 func main() {
-	println(time.Now().Format("2006-01-02 15:04:05") + " :: ##### GYM STREAK APP")
+	// base setup
+	setup.Setup()
+
+	logger.Info("Gym-Streak application started..........")
+	logger.Debug("Gym-Streak application started..........")
+	logger.Error("Gym-Streak application started..........")
 }
