@@ -8,7 +8,7 @@
 | router   | gorilla-mux | https://github.com/gorilla/mux              | -     | go get -u github.com/gorilla/mux              |
 | router   | http-router | https://github.com/julienschmidt/httprouter | -     | go get -u github.com/julienschmidt/httprouter |
 | logging  | logrus      | https://github.com/Sirupsen/logrus          | -     | go get -u github.com/sirupsen/logrus          |
-|          |             |                                             |       |                                               |
+| config   | spf13-viper | https://github.com/spf13/viper              | -     | go get github.com/spf13/viper                 |     
 
 
 ## Tech Debts

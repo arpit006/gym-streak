@@ -1,0 +1,2 @@
+logging_level: "info" # [info, debug, error]
+logging_formatter: "json" # [json, text]

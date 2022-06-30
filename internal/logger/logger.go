@@ -13,3 +13,11 @@ func Debug(message string) {
 func Error(message string) {
 	logger.Error(message)
 }
+
+func PrintAnything(msg interface{}) {
+	logger.Error(msg)
+}
+
+func Panic(message string) {
+	logger.Panic(message)
+}
