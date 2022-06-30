@@ -3,7 +3,9 @@ package logger
 import (
 	"fmt"
 	"github.com/arpit006/gym_streak/internal/config"
+	"github.com/natefinch/lumberjack"
 	"github.com/sirupsen/logrus"
+	"io"
 	"os"
 )
 
@@ -18,10 +20,18 @@ func Init() {
 	}
 	logFormatter := loggingFormatterFactory(loggerConfig.Formatter)
 	logger = logrus.New()
-	logger.SetOutput(os.Stdout)
 	logger.SetReportCaller(true)
 	logger.SetLevel(logLevel)
 	logger.SetFormatter(logFormatter)
+
+	lumberjackLogger := &lumberjack.Logger{
+		Filename:   "logs/gym-streak-app.log",
+		MaxSize:    5, // MB
+		MaxBackups: 10,
+		MaxAge:     30, // days
+		Compress:   true,
+	}
+	logger.SetOutput(io.MultiWriter(lumberjackLogger, os.Stdout))
 }
 
 func loggingFormatterFactory(formatter string) logrus.Formatter {
