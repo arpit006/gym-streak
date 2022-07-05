@@ -15,6 +15,9 @@
 ## Tech Debts
 - [x] Use Viper to pickup value from env variable 
 - [x] Pickup logger-settings from Viper Config
+- [ ] environment based configuration file
 - [ ] Add middleware to log http request
 - [ ] Inject Correlation ID to logs
+- [ ] Improve Exception Handling logic
+- 
 

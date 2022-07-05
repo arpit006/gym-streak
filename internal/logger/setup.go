@@ -9,10 +9,13 @@ import (
 	"os"
 )
 
-var logger *logrus.Logger
+var logger *logrus.Logger = nil
 
+// Init Singleton instance of logger
 func Init() {
-	// TODO: get this config from viper/vault
+	if logger != nil {
+		return
+	}
 	loggerConfig := config.GetLoggingConfig()
 	logLevel, err := logrus.ParseLevel(loggerConfig.Level)
 	if err != nil {
@@ -42,6 +45,5 @@ func loggingFormatterFactory(formatter string) logrus.Formatter {
 		return &logrus.TextFormatter{}
 	default:
 		panic(fmt.Sprintf("Not supported logging Formatting: [%s]", formatter))
-
 	}
 }
