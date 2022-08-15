@@ -1,4 +1,4 @@
-package db
+package stores
 
 import (
 	"database/sql"
@@ -8,6 +8,12 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"time"
 )
+
+type Database struct {
+	db *sql.DB
+}
+
+var DB *Database = nil
 
 func Init() {
 	dbConf := config.GetDatabaseConfig()
@@ -30,5 +36,9 @@ func Init() {
 		logger.Panic("DB connection was un-successful......")
 	} else {
 		logger.Info("######## DB connection successful....")
+	}
+
+	DB = &Database{
+		db: db,
 	}
 }

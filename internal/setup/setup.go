@@ -2,9 +2,9 @@ package setup
 
 import (
 	"github.com/arpit006/gym_streak/internal/config"
-	"github.com/arpit006/gym_streak/internal/db"
 	"github.com/arpit006/gym_streak/internal/logger"
 	"github.com/arpit006/gym_streak/internal/router"
+	"github.com/arpit006/gym_streak/internal/stores"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -49,12 +49,12 @@ func setupRouter() *mux.Router {
 }
 
 func setupTables() {
-	err := db.RunDatabaseMigrations()
+	err := stores.RunDatabaseMigrations()
 	if err != nil {
 		logger.Panic(err.Error())
 	}
 }
 
 func setupDatabase() {
-	db.Init()
+	stores.Init()
 }

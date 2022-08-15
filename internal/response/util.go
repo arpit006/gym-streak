@@ -17,9 +17,12 @@ func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) error {
 
 	// TODO: add middleware for these tasks
 	// adding custom Header info
-	w.Header().Set("developer-email", "iamarpitsrivastava06@gmail.com")
+	w.Header().Set("developer-email", "arpittech06@gmail.com")
 	w.Header().Set("company", "Gym-Streak-App")
 	w.Header().Set("version", "0.0.1")
+
+	//	 set http-response code
+	w.WriteHeader(resp.HttpStatusCode)
 
 	//	writing response
 	_, err := w.Write([]byte(resp.Msg))
@@ -28,9 +31,6 @@ func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) error {
 		return exceptions.ThrowHttpResponseException()
 	}
 	logger.Info("Message written successfully to the response")
-
-	//	 set response code
-	w.WriteHeader(resp.HttpStatusCode)
 
 	return nil
 }

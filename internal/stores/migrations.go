@@ -1,7 +1,6 @@
-package db
+package stores
 
 import (
-	"database/sql"
 	"fmt"
 	"github.com/arpit006/gym_streak/internal/config"
 	"github.com/arpit006/gym_streak/internal/logger"
@@ -15,11 +14,7 @@ const appDatabaseMigrationsPath = "file://db/migrations"
 //createMigrate this function will give you instance of Migrate library to
 func createMigrate() *migrate.Migrate {
 	dbConf := config.GetDatabaseConfig()
-	db, err := sql.Open(dbConf.Type, dbConf.DSN)
-	if err != nil {
-		logger.Panic(fmt.Sprintf("Error connecting to database to run db migrations on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error()))
-	}
-	driver, err := mysql.WithInstance(db, &mysql.Config{})
+	driver, err := mysql.WithInstance(DB.db, &mysql.Config{})
 	if err != nil {
 		logger.Panic(fmt.Sprintf("Error connecting to database to run db migrations on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error()))
 	}

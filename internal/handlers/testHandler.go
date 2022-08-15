@@ -6,14 +6,14 @@ import (
 	"net/http"
 )
 
-func HandleTestGetMethod(w http.ResponseWriter, r *http.Request) {
+func HandlePing(w http.ResponseWriter, r *http.Request) {
 	logger.Info("Inside Test Handler Get method")
 
 	respBody := response.GymStreakResp{
 		HttpStatusCode: http.StatusOK,
-		Msg:            "/test method is working absolutely fine!",
+		Msg: "{\n	\"pong\"\n}",
 		Headers: map[string]string{
-			"api": "/test",
+			"api": "GET /ping",
 		},
 	}
 	err := response.GenerateResponse(w, respBody)
