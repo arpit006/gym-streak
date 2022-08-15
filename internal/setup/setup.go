@@ -2,6 +2,7 @@ package setup
 
 import (
 	"github.com/arpit006/gym_streak/internal/config"
+	"github.com/arpit006/gym_streak/internal/db"
 	"github.com/arpit006/gym_streak/internal/logger"
 	"github.com/arpit006/gym_streak/internal/router"
 	"github.com/gorilla/mux"
@@ -15,6 +16,11 @@ func Setup() {
 	config.Load()
 	//	setup logging
 	setupLogging()
+	// setup database
+	setupDatabase()
+	// setup tables
+	setupTables()
+	// setup router
 	r := setupRouter()
 
 	srv := &http.Server{
@@ -25,11 +31,11 @@ func Setup() {
 		ReadTimeout:  15 * time.Second,
 	}
 
-	logger.Info("Gym-Streak application started..........")
-	logger.Debug("Gym-Streak application started..........")
-	logger.Error("Gym-Streak application started..........")
+	//logger.Info("Gym-Streak application started..........")
+	//logger.Debug("Gym-Streak application started..........")
+	//logger.Error("Gym-Streak application started..........")
 
-	logger.PrintAnything(config.GetLoggingConfig())
+	//logger.PrintAnything(config.GetLoggingConfig())
 
 	log.Fatal(srv.ListenAndServe())
 }
@@ -40,4 +46,15 @@ func setupLogging() {
 
 func setupRouter() *mux.Router {
 	return router.InitRoutes()
+}
+
+func setupTables() {
+	err := db.RunDatabaseMigrations()
+	if err != nil {
+		logger.Panic(err.Error())
+	}
+}
+
+func setupDatabase() {
+	db.Init()
 }

@@ -1,2 +1,14 @@
 logging_level: "info" # [info, debug, error]
 logging_formatter: "json" # [json, text]
+db_host: "localhost"
+db_port: 3306
+db_user: root
+db_pass: root@123
+db_max_open_connections: 10
+db_max_idle_connections: 10
+db_conn_max_lifetime: 300000 #ms
+db_conn_max_idle_time: 300000 #ms
+db_name: "gym_streak_app"
+db_protocol: "tcp"
+db_type: "mysql"
+

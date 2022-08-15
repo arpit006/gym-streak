@@ -6,8 +6,9 @@ import (
 )
 
 type appConfig struct {
-	logConfig LoggerConfig
-	Rand      string
+	logConfig      LoggerConfig
+	databaseConfig DatabaseConfig
+	Rand           string
 }
 
 var conf appConfig
@@ -22,7 +23,8 @@ func Load() {
 	}
 
 	conf = appConfig{
-		logConfig: readLoggerConfig(),
+		logConfig:      readLoggerConfig(),
+		databaseConfig: readDatabaseConfig(),
 	}
 	//logger.PrintAnything(conf)
 }
@@ -36,4 +38,8 @@ func setupViperConfig() {
 
 func GetLoggingConfig() LoggerConfig {
 	return conf.logConfig
+}
+
+func GetDatabaseConfig() DatabaseConfig {
+	return conf.databaseConfig
 }
