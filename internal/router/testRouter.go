@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-type Test struct{}
+type TestRouter struct{}
 
-func (t Test) InitializeRoutes() {
+func (t TestRouter) InitializeRoutes() {
 	router.HandleFunc("/test", handlers.HandleTestGetMethod).Methods(http.MethodGet)
 }

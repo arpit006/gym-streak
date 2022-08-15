@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+var DB *sql.DB = nil
+
 func Init() {
 	dbConf := config.GetDatabaseConfig()
 	//dataSourceName := fmt.Sprintf("%s:%s@/%s", dbConf.Username, dbConf.Password, dbConf.DatabaseName)
@@ -31,4 +33,9 @@ func Init() {
 	} else {
 		logger.Info("######## DB connection successful....")
 	}
+	DB = db
+}
+
+func GetDB() *sql.DB {
+	return DB
 }
