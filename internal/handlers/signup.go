@@ -12,7 +12,7 @@ import (
 )
 
 // SignupStore dependency
-var signupStore *stores.SignupStore = stores.GetSignupStoreInstance()
+var signupStore = stores.GetSignupStoreInstance()
 
 func HandlePostSignupCall(w http.ResponseWriter, r *http.Request) {
 	logger.InfoF(fmt.Sprintf("inside Handle Post Signup call."))
@@ -26,6 +26,9 @@ func HandlePostSignupCall(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		logger.ErrorF(fmt.Sprintf("Error in unmarshalling JSON. Error is %s", err))
 	}
+
+	logger.InfoF("USER JSON is :: %s", u.ToString())
+	logger.InfoF("USER Struct is :: %+v", u)
 
 	// save signup info to DB
 	err = signupStore.Signup(u)
