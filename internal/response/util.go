@@ -1,14 +1,15 @@
 package response
 
 import (
+	"fmt"
 	"github.com/arpit006/gym_streak/internal/exceptions"
 	"github.com/arpit006/gym_streak/internal/logger"
 	"net/http"
 )
 
 func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) error {
-	logger.PrintAnything("Printing the response to be created ")
-	logger.PrintAnything(resp)
+	logger.InfoF("Printing the response to be created ")
+	logger.InfoF(fmt.Sprintf("%+v", resp))
 
 	// writing headers to the response
 	for k, v := range resp.Headers {
@@ -27,10 +28,10 @@ func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) error {
 	//	writing response
 	_, err := w.Write([]byte(resp.Msg))
 	if err != nil {
-		logger.Error("Error occurred while preparing response")
+		logger.ErrorF("Error occurred while preparing response")
 		return exceptions.ThrowHttpResponseException()
 	}
-	logger.Info("Message written successfully to the response")
+	logger.InfoF("Message written successfully to the response")
 
 	return nil
 }

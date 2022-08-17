@@ -25,4 +25,5 @@
 - [ ] Replace gorilla-mux with GIN
 - [ ] Replace go-sql-driver with GORM
 - [ ] Standardize logging
+- [ ] Add context support
 

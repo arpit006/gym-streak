@@ -23,9 +23,9 @@ func (ss *SignupStore) Signup(user models.User) error {
 	query := "INSERT INTO USERS(id, first_name, last_name) VALUES(?,?,?)"
 	_, err := DB.db.Query(query, user.ID, user.FirstName, user.LastName)
 	if err != nil {
-		logger.Error(fmt.Sprintf("Error while saving signup info. Error is %s", err))
+		logger.ErrorF(fmt.Sprintf("Error while saving signup info. Error is %s", err))
 		return err
 	}
-	logger.Info("User signed-up successfully")
+	logger.InfoF("User signed-up successfully")
 	return nil
 }

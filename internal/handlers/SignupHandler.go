@@ -15,7 +15,7 @@ import (
 var signupStore *stores.SignupStore = stores.GetSignupStoreInstance()
 
 func HandlePostSignupCall(w http.ResponseWriter, r *http.Request) {
-	logger.Info(fmt.Sprintf("inside Handle Post Signup call."))
+	logger.InfoF(fmt.Sprintf("inside Handle Post Signup call."))
 
 	postBody := r.Body
 	appVersionHeader := r.Header.Get(constants.APP_VERSION_HEADER)
@@ -24,13 +24,13 @@ func HandlePostSignupCall(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(postBody).Decode(&u)
 	if err != nil {
-		logger.Error(fmt.Sprintf("Error in unmarshalling JSON. Error is %s", err))
+		logger.ErrorF(fmt.Sprintf("Error in unmarshalling JSON. Error is %s", err))
 	}
 
 	// save signup info to DB
 	err = signupStore.Signup(u)
 	if err != nil {
-		logger.Error(fmt.Sprintf("%s", err))
+		logger.ErrorF(fmt.Sprintf("%s", err))
 		errBody := response.GymStreakResp{
 			HttpStatusCode: http.StatusInternalServerError,
 			Msg:            fmt.Sprintf("error occurred in POST /signup call. Error is %s", err),
@@ -53,7 +53,7 @@ func HandlePostSignupCall(w http.ResponseWriter, r *http.Request) {
 	}
 	err = response.GenerateResponse(w, respBody)
 	if err != nil {
-		logger.PrintAnything(err)
+		logger.ErrorF(err.Error())
 		return
 	}
 

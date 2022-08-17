@@ -7,6 +7,9 @@ import (
 	"github.com/sirupsen/logrus"
 	"io"
 	"os"
+	"path"
+	"runtime"
+	"strconv"
 )
 
 var logger *logrus.Logger = nil
@@ -23,7 +26,7 @@ func Init() {
 	}
 	logFormatter := loggingFormatterFactory(loggerConfig.Formatter)
 	logger = logrus.New()
-	logger.SetReportCaller(true)
+	logger.SetReportCaller(false)
 	logger.SetLevel(logLevel)
 	logger.SetFormatter(logFormatter)
 
@@ -40,7 +43,12 @@ func Init() {
 func loggingFormatterFactory(formatter string) logrus.Formatter {
 	switch formatter {
 	case "json":
-		return &logrus.JSONFormatter{}
+		return &logrus.JSONFormatter{
+			CallerPrettyfier: func(frame *runtime.Frame) (function string, file string) {
+				fileName := path.Base(frame.File) + ":" + strconv.Itoa(frame.Line)
+				return "", fileName
+			},
+		}
 	case "text":
 		return &logrus.TextFormatter{}
 	default:

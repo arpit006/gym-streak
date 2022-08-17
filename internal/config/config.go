@@ -26,7 +26,6 @@ func Load() {
 		logConfig:      readLoggerConfig(),
 		databaseConfig: readDatabaseConfig(),
 	}
-	//logger.PrintAnything(conf)
 }
 
 func setupViperConfig() {
