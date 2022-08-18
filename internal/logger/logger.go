@@ -33,22 +33,50 @@ func chopPath(filePath string) string {
 	return filePath
 }
 
-func InfoF(msg string, args ...interface{}) {
+func Infof(msg string, args ...interface{}) {
 	logger.WithFields(getSourceInfo()).Infof(msg, args)
 }
 
-func ErrorF(msg string, args ...interface{}) {
+func Errorf(msg string, args ...interface{}) {
 	logger.WithFields(getSourceInfo()).Errorf(msg, args)
 }
 
-func DebugF(msg string, args ...interface{}) {
+func Debugf(msg string, args ...interface{}) {
 	logger.WithFields(getSourceInfo()).Debugf(msg, args)
 }
 
-func WarnF(msg string, args ...interface{}) {
+func Warnf(msg string, args ...interface{}) {
 	logger.WithFields(getSourceInfo()).Warnf(msg, args)
 }
 
-func PanicF(msg string, args ...interface{}) {
+func Panicf(msg string, args ...interface{}) {
 	logger.WithFields(getSourceInfo()).Panicf(msg, args)
+}
+
+func Fatalf(msg string, args ...interface{}) {
+	logger.WithFields(getSourceInfo()).Fatalf(msg, args)
+}
+
+func Info(msg string) {
+	logger.WithFields(getSourceInfo()).Info(msg)
+}
+
+func Warn(msg string) {
+	logger.WithFields(getSourceInfo()).Warn(msg)
+}
+
+func Error(msg string) {
+	logger.WithFields(getSourceInfo()).Error(msg)
+}
+
+func Debug(msg string) {
+	logger.WithFields(getSourceInfo()).Debug(msg)
+}
+
+func Panic(msg string) {
+	logger.WithFields(getSourceInfo()).Panic(msg)
+}
+
+func Fatal(msg string) {
+	logger.WithFields(getSourceInfo()).Fatal(msg)
 }

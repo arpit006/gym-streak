@@ -8,8 +8,8 @@ import (
 )
 
 func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) error {
-	logger.InfoF("Printing the response to be created ")
-	logger.InfoF(fmt.Sprintf("%+v", resp))
+	logger.Info("Printing the response to be created ")
+	logger.Info(fmt.Sprintf("%+v", resp))
 
 	// writing headers to the response
 	for k, v := range resp.Headers {
@@ -28,10 +28,10 @@ func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) error {
 	//	writing response
 	_, err := w.Write([]byte(resp.Msg))
 	if err != nil {
-		logger.ErrorF("Error occurred while preparing response")
+		logger.Error("Error occurred while preparing response")
 		return exceptions.ThrowHttpResponseException()
 	}
-	logger.InfoF("Message written successfully to the response")
+	logger.Info("Message written successfully to the response")
 
 	return nil
 }

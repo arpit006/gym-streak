@@ -26,4 +26,5 @@
 - [ ] Replace go-sql-driver with GORM
 - [ ] Standardize logging
 - [ ] Add context support
+- [ ] Use Pointer Receiver at required places
 

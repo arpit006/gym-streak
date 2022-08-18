@@ -31,11 +31,11 @@ func Setup() {
 		ReadTimeout:  15 * time.Second,
 	}
 
-	//logger.InfoF("Gym-Streak application started..........")
-	//logger.DebugF("Gym-Streak application started..........")
-	//logger.ErrorF("Gym-Streak application started..........")
+	//logger.Infof("Gym-Streak application started..........")
+	//logger.Debugf("Gym-Streak application started..........")
+	//logger.Errorf("Gym-Streak application started..........")
 
-	logger.InfoF("arpit", "srivastava")
+	logger.Infof("Welcome to %s Gym Streak %s  app : %s who works at %s", "Arpit", "Srivastava", "Gojek", "India")
 
 	log.Fatal(srv.ListenAndServe())
 }
@@ -51,7 +51,7 @@ func setupRouter() *mux.Router {
 func setupTables() {
 	err := stores.RunDatabaseMigrations()
 	if err != nil {
-		logger.PanicF(err.Error())
+		logger.Panic(err.Error())
 	}
 }
 

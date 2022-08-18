@@ -14,10 +14,10 @@ type User struct {
 	UpdatedAt *time.Time
 }
 
-func (u User) ToString() string {
+func (u *User) ToString() string {
 	s, err := json.Marshal(u)
 	if err != nil {
-		logger.ErrorF("Could not Marshall User object to JSON")
+		logger.Error("Could not Marshall User object to JSON")
 		return ""
 	}
 	return string(s)

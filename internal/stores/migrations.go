@@ -16,12 +16,12 @@ func createMigrate() *migrate.Migrate {
 	dbConf := config.GetDatabaseConfig()
 	driver, err := mysql.WithInstance(DB.db, &mysql.Config{})
 	if err != nil {
-		logger.PanicF(fmt.Sprintf("Error connecting to database to run db migrations on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error()))
+		logger.Panicf("Error connecting to database to run db migrations on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error())
 	}
 
 	m, err := migrate.NewWithDatabaseInstance(appDatabaseMigrationsPath, dbConf.Type, driver)
 	if err != nil {
-		logger.PanicF(fmt.Sprintf("Failed to prepare migration on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error()))
+		logger.Panicf(fmt.Sprintf("Failed to prepare migration on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error()))
 	}
 
 	return m
@@ -32,12 +32,12 @@ func RunDatabaseMigrations() error {
 	err := m.Up()
 	if err != nil {
 		if err == migrate.ErrNoChange {
-			logger.InfoF("No changes detected for migration")
+			logger.Info("No changes detected for migration")
 			return nil
 		}
-		logger.ErrorF(fmt.Sprintf("Migration failed. Error is - %s", err))
+		logger.Errorf("Migration failed. Error is - %s", err)
 	}
-	logger.InfoF("Migration completed successfully")
+	logger.Info("Migration completed successfully")
 	return nil
 }
 
@@ -46,11 +46,11 @@ func RollbackDatabaseMigrations() error {
 	err := m.Steps(-1)
 	if err != nil {
 		if err == migrate.ErrNoChange {
-			logger.InfoF("No changes detected for migration")
+			logger.Info("No changes detected for migration")
 			return nil
 		}
-		logger.ErrorF(fmt.Sprintf("Rollback failed. Error is - %s", err))
+		logger.Errorf("Rollback failed. Error is - %s", err)
 	}
-	logger.InfoF("Rollback completed successfully")
+	logger.Info("Rollback completed successfully")
 	return nil
 }

@@ -7,7 +7,7 @@ import (
 )
 
 func HandlePing(w http.ResponseWriter, r *http.Request) {
-	logger.InfoF("Inside Test Handler Get method")
+	logger.Info("Inside Test Handler Get method")
 
 	respBody := response.GymStreakResp{
 		HttpStatusCode: http.StatusOK,
@@ -18,7 +18,7 @@ func HandlePing(w http.ResponseWriter, r *http.Request) {
 	}
 	err := response.GenerateResponse(w, respBody)
 	if err != nil {
-		logger.ErrorF(err.Error())
+		logger.Error(err.Error())
 		return
 	}
 }

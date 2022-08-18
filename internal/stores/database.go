@@ -20,8 +20,8 @@ func Init() {
 	//dataSourceName := fmt.Sprintf("%s:%s@/%s", dbConf.Username, dbConf.Password, dbConf.DatabaseName)
 	db, err := sql.Open(dbConf.Type, dbConf.DSN)
 	if err != nil {
-		logger.ErrorF(err.Error())
-		logger.PanicF(fmt.Sprintf("Could not connect to [%s] database [%s]", dbConf.Type, dbConf.DSN))
+		logger.Error(err.Error())
+		logger.Panic(fmt.Sprintf("Could not connect to [%s] database [%s]", dbConf.Type, dbConf.DSN))
 	}
 
 	db.SetConnMaxLifetime(time.Duration(dbConf.ConnMaxLifetime))
@@ -31,10 +31,10 @@ func Init() {
 
 	e := db.Ping()
 	if e != nil {
-		logger.ErrorF(e.Error())
-		logger.PanicF("DB connection was un-successful......")
+		logger.Error(e.Error())
+		logger.Panic("DB connection was un-successful......")
 	} else {
-		logger.InfoF("######## DB connection successful....")
+		logger.Info("######## DB connection successful....")
 	}
 
 	DB = &Database{
