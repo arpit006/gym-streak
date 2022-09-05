@@ -34,27 +34,27 @@ func chopPath(filePath string) string {
 }
 
 func Infof(msg string, args ...interface{}) {
-	logger.WithFields(getSourceInfo()).Infof(msg, args)
+	logger.WithFields(getSourceInfo()).Infof(msg, args...)
 }
 
 func Errorf(msg string, args ...interface{}) {
-	logger.WithFields(getSourceInfo()).Errorf(msg, args)
+	logger.WithFields(getSourceInfo()).Errorf(msg, args...)
 }
 
 func Debugf(msg string, args ...interface{}) {
-	logger.WithFields(getSourceInfo()).Debugf(msg, args)
+	logger.WithFields(getSourceInfo()).Debugf(msg, args...)
 }
 
 func Warnf(msg string, args ...interface{}) {
-	logger.WithFields(getSourceInfo()).Warnf(msg, args)
+	logger.WithFields(getSourceInfo()).Warnf(msg, args...)
 }
 
 func Panicf(msg string, args ...interface{}) {
-	logger.WithFields(getSourceInfo()).Panicf(msg, args)
+	logger.WithFields(getSourceInfo()).Panicf(msg, args...)
 }
 
 func Fatalf(msg string, args ...interface{}) {
-	logger.WithFields(getSourceInfo()).Fatalf(msg, args)
+	logger.WithFields(getSourceInfo()).Fatalf(msg, args...)
 }
 
 func Info(msg string) {
