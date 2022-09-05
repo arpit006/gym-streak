@@ -32,6 +32,7 @@
 - [ ] Add cmd support in app
 - [ ] Add database transactions
 - [ ] Add support of contexts
-- [ ] Fix logging issue
+- [x] Fix logging issue
+- [ ] Refactor error handling framework (minor left overs)
 
 
