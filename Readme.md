@@ -12,6 +12,7 @@
 | log-rotation        | lumberjack  | https://github.com/natefinch/lumberjack     | -     |                                               |
 | database-driver     | mysql       | https://github.com/go-sql-driver/mysql      | -     | go get github.com/go-sql-driver/mysql         |
 | database-migrations | migrate     | https://github.com/golang-migrate/migrate   | -     | go get github.com/go-sql-driver/mysql         |
+| uuid                | google-uuid | https://github.com/google/uuid              | -     | go get github.com/google/uuid                 |
 
 
 
@@ -27,4 +28,10 @@
 - [ ] Standardize logging
 - [ ] Add context support
 - [ ] Use Pointer Receiver at required places
+- [ ] Integrate ElasticSearch for type-aheads and exercise searches
+- [ ] Add cmd support in app
+- [ ] Add database transactions
+- [ ] Add support of contexts
+- [ ] Fix logging issue
+
 

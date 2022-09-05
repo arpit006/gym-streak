@@ -16,9 +16,5 @@ func HandlePing(w http.ResponseWriter, r *http.Request) {
 			"api": "GET /ping",
 		},
 	}
-	err := response.GenerateResponse(w, respBody)
-	if err != nil {
-		logger.Error(err.Error())
-		return
-	}
+	response.GenerateResponse(w, respBody)
 }
