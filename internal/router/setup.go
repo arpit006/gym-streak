@@ -17,11 +17,11 @@ func initRouterInstance() *mux.Router {
 
 func InitRoutes() *mux.Router {
 	initRouterInstance()
-	var testRouter GymStreakRouters = PingRouter{}
-	testRouter.InitializeRoutes()
+	var pingRouter GymStreakRouters = PingRouter{}
+	pingRouter.InitializeRoutes()
 
-	var signupRouter GymStreakRouters = SignupRouter{}
-	signupRouter.InitializeRoutes()
+	var exerciseRouter GymStreakRouters = ExerciseRouter{}
+	exerciseRouter.InitializeRoutes()
 
 	return router
 }
