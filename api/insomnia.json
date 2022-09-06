@@ -1,0 +1,114 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-09-05T20:06:16.047Z",
+  "__export_source": "insomnia.desktop.app:v2022.5.0",
+  "resources": [{
+    "_id": "req_301c3f2141aa4564be20767d7ce05a6b",
+    "parentId": "fld_134edb880ee841f7aa0a43ec57664cf8",
+    "modified": 1662407091518,
+    "created": 1661108365485,
+    "url": "http://localhost:8000/exercise",
+    "name": "/exercise",
+    "description": "",
+    "method": "POST",
+    "body": {
+      "mimeType": "application/json",
+      "text": "{\n\t\"name\": \"Benchpress\",\n\t\"meta\": \"chest workout\",\n\t\"category\": \"compounds\",\n\t\"type\": \"cardio\"\n}"
+    },
+    "parameters": [],
+    "headers": [{
+      "name": "Content-Type",
+      "value": "application/json",
+      "id": "pair_f53ba729bfb04d028f87d0df1f953476"
+    }],
+    "authentication": {},
+    "metaSortKey": -1661108365485,
+    "isPrivate": false,
+    "settingStoreCookies": true,
+    "settingSendCookies": true,
+    "settingDisableRenderRequestBody": false,
+    "settingEncodeUrl": true,
+    "settingRebuildPath": true,
+    "settingFollowRedirects": "global",
+    "_type": "request"
+  }, {
+    "_id": "fld_134edb880ee841f7aa0a43ec57664cf8",
+    "parentId": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "modified": 1662404547153,
+    "created": 1662404547153,
+    "name": "exercise",
+    "description": "",
+    "environment": {},
+    "environmentPropertyOrder": null,
+    "metaSortKey": -1662404547153,
+    "_type": "request_group"
+  }, {
+    "_id": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "parentId": null,
+    "modified": 1660575655113,
+    "created": 1660575655113,
+    "name": "New Document",
+    "description": "",
+    "scope": "design",
+    "_type": "workspace"
+  }, {
+    "_id": "req_5061e0441b4d4178a4a5984e17e01c55",
+    "parentId": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "modified": 1660592496337,
+    "created": 1660592449822,
+    "url": "http://localhost:8000/ping",
+    "name": "/ping",
+    "description": "",
+    "method": "GET",
+    "body": {},
+    "parameters": [],
+    "headers": [],
+    "authentication": {},
+    "metaSortKey": -1660592449822,
+    "isPrivate": false,
+    "settingStoreCookies": true,
+    "settingSendCookies": true,
+    "settingDisableRenderRequestBody": false,
+    "settingEncodeUrl": true,
+    "settingRebuildPath": true,
+    "settingFollowRedirects": "global",
+    "_type": "request"
+  }, {
+    "_id": "env_9a86667d45dff01a9246c2757fdb90be077b6265",
+    "parentId": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "modified": 1660575655133,
+    "created": 1660575655133,
+    "name": "Base Environment",
+    "data": {},
+    "dataPropertyOrder": null,
+    "color": null,
+    "isPrivate": false,
+    "metaSortKey": 1660575655133,
+    "_type": "environment"
+  }, {
+    "_id": "jar_9a86667d45dff01a9246c2757fdb90be077b6265",
+    "parentId": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "modified": 1660575655136,
+    "created": 1660575655136,
+    "name": "Default Jar",
+    "cookies": [],
+    "_type": "cookie_jar"
+  }, {
+    "_id": "spc_4fb19b4c97294b6d930127b1e9e4fc60",
+    "parentId": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "modified": 1660575675666,
+    "created": 1660575655128,
+    "fileName": "GymStreakApp",
+    "contents": "",
+    "contentType": "yaml",
+    "_type": "api_spec"
+  }, {
+    "_id": "uts_83ce9e2587fc46e0aeda3a25193f02b3",
+    "parentId": "wrk_b19241dd7eea4163a4f892b35c82153e",
+    "modified": 1660575655141,
+    "created": 1660575655141,
+    "name": "Example Test Suite",
+    "_type": "unit_test_suite"
+  }]
+}
