@@ -31,7 +31,7 @@ func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) {
 	_, err := w.Write([]byte(resp.Msg))
 	if err != nil {
 		logger.Error("Error occurred while preparing response")
-		// TODO: here
+		HandleErrorResponse(w, nil)
 		return
 	}
 	logger.Info("Message written successfully to the response")
@@ -39,7 +39,8 @@ func GenerateResponse(w http.ResponseWriter, resp GymStreakResp) {
 
 func HandleErrorResponse(w http.ResponseWriter, err exceptions.GymStreakAppException) {
 	if err == nil {
-		//	Handle internal server error here
+		// set default exception
+		err = exceptions.NewInternalServerError()
 	}
 	logger.Error(err.Error())
 	headers := err.GetErrorHeaders()
