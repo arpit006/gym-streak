@@ -9,11 +9,11 @@ import (
 	"time"
 )
 
-type Database struct {
+type Store struct {
 	db *sql.DB
 }
 
-var DB *Database = nil
+var STORE *Store = nil
 
 func Init() {
 	dbConf := config.GetDatabaseConfig()
@@ -32,12 +32,12 @@ func Init() {
 	e := db.Ping()
 	if e != nil {
 		logger.Error(e.Error())
-		logger.Panic("DB connection was un-successful......")
+		logger.Panic("STORE connection was un-successful......")
 	} else {
-		logger.Info("######## DB connection successful....")
+		logger.Info("######## STORE connection successful....")
 	}
 
-	DB = &Database{
+	STORE = &Store{
 		db: db,
 	}
 }

@@ -39,9 +39,9 @@ func (ex DatabaseException) GetErrorHeaders() map[string]string {
 }
 
 func (ex DatabaseException) GetErrorDisplayMessage() string {
-	body := map[string]string{
-		"code": string(rune(ex.GetErrorCode())),
-		"type": string(ex.GetErrorType()),
+	body := map[string]interface{}{
+		"code": ex.GetErrorCode(),
+		"type": ex.GetErrorType(),
 		"msg":  ex.GetShortErrorMessage(),
 	}
 	jsonString, err := json.Marshal(body)

@@ -36,3 +36,11 @@
 - [ ] Refactor error handling framework (minor left overs)
 
 
+
+## Setup
+* Read [Startup.md](Startup.md) for setting up this project in your local
+
+## How to contribute?
+* Read [Contributing.md](Contributing.md) for contributing to this project
+
+

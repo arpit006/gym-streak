@@ -16,6 +16,7 @@ const (
 // ErrorType string
 type ErrorType string
 
+// supported Error Types
 var (
 	BAD_REQUEST           = mapToErrorType("bad-request")
 	INTERNAL_SERVER_ERROR = mapToErrorType("internal-server-error")
