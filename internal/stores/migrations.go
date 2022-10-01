@@ -14,7 +14,7 @@ const appDatabaseMigrationsPath = "file://db/migrations"
 //createMigrate this function will give you instance of Migrate library to
 func createMigrate() *migrate.Migrate {
 	dbConf := config.GetDatabaseConfig()
-	driver, err := mysql.WithInstance(DB.db, &mysql.Config{})
+	driver, err := mysql.WithInstance(STORE.db, &mysql.Config{})
 	if err != nil {
 		logger.Panicf("Error connecting to database to run db migrations on [%s] database: [%s]. Error is - %s", dbConf.Type, dbConf.DatabaseName, err.Error())
 	}

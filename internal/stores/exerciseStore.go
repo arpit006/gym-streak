@@ -23,7 +23,7 @@ func GetExerciseStoreInstance() *exerciseStores {
 
 func (eStore exerciseStores) AddAnExercise(e *models.Exercise) exceptions.GymStreakAppException {
 	insertQuery := exerciseQuery.GetCreateExerciseQuery()
-	_, err := DB.db.Exec(insertQuery, e.ExerciseId, e.Name, e.MetaInfo, e.Category, e.Type)
+	_, err := STORE.db.Exec(insertQuery, e.ExerciseId, e.Name, e.MetaInfo, e.Category, e.Type)
 	if err != nil {
 		return exceptions.NewDatabaseException(500, exceptions.DATABASE_SAVE_ERROR, fmt.Sprintf("Error while saving data in database. Error is %s", err), "error in saving data to database", nil)
 	}
